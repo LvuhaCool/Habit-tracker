@@ -182,3 +182,52 @@
     border-right-color: var(--border);
   }
 }
+
+/* Habit tracker specific styles */
+.app-header {
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+}
+.app-avatar {
+  width: 44px;
+  height: 44px;
+  color: #fff;
+  font-weight: 600;
+}
+.profile-img {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(90deg,#ffd54a,#ff8a65);
+}
+.muted { color: var(--text); opacity: 0.8 }
+.section-title { text-align: left; margin-bottom: 12px }
+.cards-row { padding-bottom: 8px }
+.habit-card {
+  min-width: 220px;
+  max-width: 260px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  box-shadow: var(--shadow);
+}
+.streak { text-align: right }
+.streak-value { font-weight: 600 }
+.list-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(240px,1fr)); gap: 16px }
+.bottom-nav { border-top: 1px solid var(--border); background: var(--bg) }
+.fab {
+  position: fixed;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 64px;
+  box-shadow: 0 6px 16px rgba(17,24,39,0.18);
+  font-size: 26px;
+}
+
+@media (max-width: 768px) {
+  .h1, .h2 { text-align: left }
+  .section-title { font-size: 18px }
+  .cards-row { padding-left: 6px }
+  .home-root { min-height: 100vh }
+}
