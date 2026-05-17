@@ -1,44 +1,33 @@
-import React from 'react'
-import Header from '../components/Header'
-import HabitCard from '../components/HabitCard'
-import FAB from '../components/FAB'
+import React, { type FC } from "react";
+import TopBar from "../components/TopBar";
+import HabitCardSimple from "../components/HabitCardSimple";
+import FooterTabs from "../components/FooterTabs";
 
-const Home: React.FC = () => {
+const Home: FC = () => {
+  const habits = [
+    { id: "h1", title: "Make bed", color: "var(--icon-bed)" },
+    { id: "h2", title: "Follow To-do", color: "var(--icon-todo)" },
+    { id: "h3", title: "Do sports", color: "var(--icon-dumbbell)" },
+  ];
+
   return (
-    <div className="home-root d-flex flex-column">
-      <Header />
+    <div className="app-container">
+      <TopBar />
 
-      <main className="flex-grow-1 px-3 py-3">
-        <section className="section-cards mb-4">
-          <h2 className="section-title">Today's Highlights</h2>
-          <div className="cards-row d-flex gap-3 overflow-auto">
-            <HabitCard title="Morning Run" subtitle="30 minutes" color="#06b6d4" />
-            <HabitCard title="Read" subtitle="20 pages" color="#f97316" />
-            <HabitCard title="Meditate" subtitle="10 minutes" color="#8b5cf6" />
-          </div>
-        </section>
+      <div className="habits-list">
+        {habits.map((h, i) => (
+          <HabitCardSimple
+            key={h.id}
+            id={h.id}
+            title={h.title}
+            iconColor={h.color}
+          />
+        ))}
+      </div>
 
-        <section>
-          <h2 className="section-title">All Habits</h2>
-          <div className="list-grid mt-3">
-            <HabitCard title="Drink Water" subtitle="8 glasses" color="#06b6d4" />
-            <HabitCard title="Sleep Early" subtitle="8 hours" color="#10b981" />
-            <HabitCard title="Study" subtitle="1 hour" color="#ef4444" />
-          </div>
-        </section>
-      </main>
-
-      <nav className="bottom-nav d-flex justify-content-around align-items-center py-2">
-        <div className="nav-item muted">Home</div>
-        <div className="nav-item muted">Stats</div>
-        <div style={{ width: 64 }}></div>
-        <div className="nav-item muted">Habits</div>
-        <div className="nav-item muted">Profile</div>
-      </nav>
-
-      <FAB />
+      <FooterTabs />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
